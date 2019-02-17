@@ -9,6 +9,6 @@
 打印属性：
 site.baseurl = {{site.baseurl}}
 post.url={{post.url}}
-post.title={{ post.title}} 
+post.title={{post.title}} 
 
 {% endfor %}
