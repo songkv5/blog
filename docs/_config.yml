@@ -1,13 +1,13 @@
 theme: jekyll-theme-architect
 
-# Site settings
-title: "Willis's blog"
-description: "Hello everybody"
-baseurl: ""
-url: "http://songkv5.github.io"
+# # Site settings
+# title: "Willis's blog"
+# description: "Hello everybody"
+# baseurl: ""
+# url: "http://songkv5.github.io/blog/"
 
-# Build settings
-markdown: redcarpet
-permalink: pretty
-highlighter: pygments
-paginate: 3
+# # Build settings
+# markdown: redcarpet
+# permalink: pretty
+# highlighter: pygments
+# paginate: 3
