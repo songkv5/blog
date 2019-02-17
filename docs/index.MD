@@ -3,3 +3,7 @@
 
 
 **博客首页**
+
+{% for post in  site.posts %}
+{{ post.title }}
+{% endfor %}
