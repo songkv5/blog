@@ -8,6 +8,5 @@ twitter_username: willissong
 github_username:  songkv5
 
 # Build settings
-markdown: redcarpet:
-    extensions: [ "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+markdown: kramdown
 copyright: 版权声明：本文为willis原创文章， 转载请注明出处, 转载请注明出处 ！
