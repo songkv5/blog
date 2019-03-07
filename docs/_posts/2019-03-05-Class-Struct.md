@@ -174,6 +174,21 @@ ConstantValue|字段表|final关键字定义的常量值
 Deprecated|类、方法表、字段表|被声明为deprecated的方法和字段
 Exceptions|方法表|方法抛出的异常
 EnclosingMethod|类文件|仅当一个类为局部类或者匿名类时才能拥有这个属性，这个属性用于标志这个类所在的外围方法
+InnerClass|类文件|内部类列表
+lineNumberTable|Code属性|java源码的行号与字节码指令的对应关系
+LocalVariableTable|Code属性|方法的局部变量描述
+StackMapTable|Code属性|JDK1.6中新增的属性，供新的类型检查验证器检查和处理目标方法的局部变量和操作数栈所需要的类型是否匹配
+Signatrue|类、方法表、字段表|--
+SourceFile|类文件|记录源文件名称
+SourceDebugExtention|类文件|JDK新增的属性，用于存储额外的调试信息
+Synthetic|类、方法表、字段表|标识方法或字段为编译器自动生成的
+LocalVariavleTypeTable|类|JDK1.5中新增的属性
+RuntimeVisibleAnnotations|类、方法表、字段表|JDK1.5新增的属性，为动态注解提供支持，用于表明哪些注解是运行时（运行时进行反射调用）是可见的
+RuntimeInvisibleAnnotations|类、方法表、字段表|和RuntimeVisibleAnnotation想法，用于表明哪些注解是运行时是不可见的
+RuntimeVisibleParameterAnnotations|方法表|JDK1.5新增的属性，作用与RuntimeVisibleAnnotations相似，只不过作用对象为方法参数
+RuntimeInVisibleParameterAnnotations|方法表|JDK1.5新增的属性，作用与RuntimeInVisibleAnnotations相似，只不过作用对象为方法参数
+AnnotationDefault|方法表|JDK1.5新增的属性，用于记录注解元素的默认值
+BootstrapMethod|类文件|JDK1.7新增属性，用于保存invokedynamic指令引用的引导方法限定符
 10. 
 
 ---
