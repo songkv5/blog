@@ -189,6 +189,19 @@ RuntimeVisibleParameterAnnotations|方法表|JDK1.5新增的属性，作用与Ru
 RuntimeInVisibleParameterAnnotations|方法表|JDK1.5新增的属性，作用与RuntimeInVisibleAnnotations相似，只不过作用对象为方法参数
 AnnotationDefault|方法表|JDK1.5新增的属性，用于记录注解元素的默认值
 BootstrapMethod|类文件|JDK1.7新增属性，用于保存invokedynamic指令引用的引导方法限定符
+
+***Code属性表***
+属性名称|类型|数量|说明
+:---|:---|:---|:---
+attribute_name_index|u2|1|指向Constant_Utf8_info型常量索引，固定为“Code”
+attribute_length|u4|1|指示了属性值的长度
+max_stack|u2|1|代表了操作数栈深度的最大值
+max_locals|u4|1|代表了局部变量表所需要的存储空间
+code_length|u4|1|字节码长度
+code|u1|code_length|保存字节码指令，每个code就是一个字节码指令，共有code_length个
+exception_table_length|u2|1|异常处理表
+
+
 10. 
 
 ---
