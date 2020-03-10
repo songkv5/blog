@@ -190,7 +190,9 @@ RuntimeInVisibleParameterAnnotations|方法表|JDK1.5新增的属性，作用与
 AnnotationDefault|方法表|JDK1.5新增的属性，用于记录注解元素的默认值
 BootstrapMethod|类文件|JDK1.7新增属性，用于保存invokedynamic指令引用的引导方法限定符
 
+
 ***Code属性表***
+
 属性名称|类型|数量|说明
 :---|:---|:---|:---
 attribute_name_index|u2|1|指向Constant_Utf8_info型常量索引，固定为“Code”
@@ -202,13 +204,11 @@ code|u1|code_length|保存字节码指令，每个code就是一个字节码指�
 exception_table_length|u2|1|异常处理表
 
 
-10、
-
 
 #### 符号引用
-1）类和接口的全限定名
-2）字段的名称和描述符
-3）方法的名称和描述符
+- 1）类和接口的全限定名
+- 2）字段的名称和描述符
+- 3）方法的名称和描述符
 
 ---
 1. 深入理解Java虚拟机》第二版
