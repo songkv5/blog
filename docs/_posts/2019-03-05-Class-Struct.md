@@ -29,13 +29,15 @@ attribute_info|attributes|attribute_count|属性项。参考[属性表](#属性�
 1.、魔数CAFEBABE（4个字节）
 2、次版本号（2个字节）
 3.、主版本号（2个字节）
-4.、常量池入口（前两个字节代表常量池容量，后面紧跟着常量的内容
+4.、常量池入口（前两个字节代表常量池容量，后面紧跟着常量的内容）
 
 **常量表类型**如下
 
+*常量池中主要存放两大类常量：字面量和符号引用*
+
 类型|标志的值（每一项常量的第一个字节的值）|描述
 :---|:---|:---
-CONSTANT_Utf8_info|1|TF8编码的字符串
+CONSTANT_Utf8_info|1|UTF8编码的字符串
 CONSTANT_Integer_info|3|整形字面量
 CONSTANT_Float_info|4|浮点型字面量
 CONSTANT_Long_info|5|长整形字面量
@@ -61,6 +63,10 @@ u2|name_index|1
 
 tag理解同上，都是标志一个常量类型。
 ***name_index*** 是索引值，指向另一个常量。如果name_index的值是4，就意味着它执行常量池中第4个常量，只要看第四个常量是什么即可。
+
+**常量结构如下**
+![]({{ site.baseurl }}/images/2019-03-05/constant-table-1.png)
+![]({{ site.baseurl }}/images/2019-03-05/constant-table-2.png)
 
 
 5、访问标志（2个字节），紧跟常量池之后。包括了这个class是类还是接口，是否是public，是否为abstract，是否是final等
