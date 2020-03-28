@@ -7,15 +7,15 @@ layout: default
 <ul class="post-list">
   {% for post in site.posts %}
     <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }} {{ post.date | date: "%Y- %M -%d" }}</span>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }} {{ post.date | date: "%Y - %m -%d" }}</span>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}{{post.url}}</a>            
     </li>
   {% endfor %}
 </ul>
 
-### {{ site.baseurl }}/_post/2020-03-28-红黑树.md
+### [红黑树]({{ site.baseurl }}/_post/2020-03-28-红黑树.md)
 
-There should be whitespace between paragraphs.
+<!-- There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
@@ -130,3 +130,4 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+-->
