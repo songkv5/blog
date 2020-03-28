@@ -5,8 +5,14 @@ layout: default
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
-[红黑树](./_posts/2020-03-28-红黑树.html).
-[test](CONTRIBUTING.html)
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}{{post.url}}</a>            
+    </li>
+  {% endfor %}
+</ul>
 
 There should be whitespace between paragraphs.
 
