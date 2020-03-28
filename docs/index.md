@@ -6,6 +6,7 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
 [红黑树](./_posts/2020-03-28-红黑树.html).
+[test](CONTRIBUTING.html)
 
 There should be whitespace between paragraphs.
 
