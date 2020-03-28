@@ -2,17 +2,18 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./another-page.html).
+<!-- Text can be **bold**, _italic_, or ~~strikethrough~~.-->
+<!-- 目录结构 -->
 <ul class="post-list">
   {% for post in site.posts %}
     <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }} {{ post.date | date: "%Y- %M -%d" }}</span>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}{{post.url}}</a>            
     </li>
   {% endfor %}
 </ul>
+
+### {{ site.baseurl }}/_post/2020-03-28-红黑树.md
 
 There should be whitespace between paragraphs.
 
