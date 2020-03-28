@@ -1,7 +1,7 @@
 # Site settings
-title: 凯 の 博客
+title: Zone Of Willis 
 email: willissong.7@gmail.com 
-description: 子曾经曰过：学而时习之，不亦说乎~ # Write an awesome description for your new site here. You can edit this  line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+description: 你是什么样的人, 不是取决于别人怎么说 # Write an awesome description for your new site here. You can edit this  line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://songkv5.github.io" # the base hostname & protocol for your site
 twitter_username: willissong

@@ -6,14 +6,13 @@ layout: default
 <!-- 目录结构 -->
 <ul class="post-list">
   {% for post in site.posts %}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }} {{ post.date | date: "%Y - %m -%d" }}</span>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}{{post.url}}</a>            
-    </li>
+    <!-- <li> -->
+    <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>            
+    <!-- </li> -->
   {% endfor %}
 </ul>
 
-### [红黑树]({{ site.baseurl }}/_post/2020-03-28-红黑树.md)
+<!-- ### [红黑树]({{ site.baseurl }}/_post/2020-03-28-红黑树.md) -->
 
 <!-- There should be whitespace between paragraphs.
 
