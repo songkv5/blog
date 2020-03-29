@@ -5,7 +5,8 @@ description: Be what you want to be, and do not care about what others said~ # W
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://songkv5.github.io" # the base hostname & protocol for your site
 twitter_username: willissong
-github_username:  songkv5
+github_username: songkv5
+pen_name: 行走的山药蛋
 
 # Build settings
 markdown: kramdown
