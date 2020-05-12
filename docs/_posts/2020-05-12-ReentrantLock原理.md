@@ -9,7 +9,7 @@ date: 2020-05-12 23:23
 ### 源码解析
 > ReentrantLock锁支持两种锁机制，一种是公平锁(FairSync实现)，一种是非公平锁（NonfairSync实现）。
 FairSync与NonfairSync的相关类图如：
-![ReentrantLock类图]({{ site.baseurl }}/images/2020-05-11/ReentrantLock-class.png)
+![ReentrantLock类图]({{ site.baseurl }}/images/2020-05-12/ReentrantLock-class.png)
 
 >> 公平锁： 线程获得锁的顺序完全按照线程的加锁顺序来实现，严格按照线程等待队列的顺序获得锁；
 >> 非公平锁：线程获得锁的顺序完全由系统控制，在尝试获得锁的时候不考虑等待队列，只有发生锁竞争的时候才会将线程放到等待队列中。
