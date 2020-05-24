@@ -50,6 +50,7 @@ date: 2020-05-23 23:34
 
 ## 二、ZAB
 ### 1、ZAB协议
+
 >很多人可能认为Zookeeper就是paxos算法的一个实现，但事实上，zookeeper并没有完全采用Paxos算法，而是使用了一种称为zookeeper atomic broadcast（zab，zookeeper原子消息广播协议）的协议作为数据一致性的核心算法。
 **zab协议是为分布式协调服务zookeeper专门设计的一种支持崩溃恢复的原子广播协议**
 
@@ -61,6 +62,7 @@ date: 2020-05-23 23:34
 >所有事务请求必须有一个全局唯一的服务器来协调处理，这样的服务器成为leader服务器，而余下的其他服务器则成为follower服务器。leader服务器负责将一个客户端事务请求转换成一个事务proposal（提议），并将该proposal分发给集群中所有的follower服务器。之后leader服务器需要等待所有follower服务器的反馈，一旦超过半数的follower服务器进行了正确的反馈后，那么leader就会再次向所有的follower服务器分发commit消息，要求其将前一个proposal进行提交
 
 #### 1.1、zab的两种工作模式
+
 - 1、崩溃恢复模式
 
 >当整个服务框架在【启动过程】中，或者是当【Leader服务器出现网络中断】、崩溃退出与重启等异常情况时，zab协议就会进入恢复模式并选举产生新的Leader服务器。
@@ -71,13 +73,16 @@ date: 2020-05-23 23:34
 >eg. 一个由3台机器组成的zab服务，通常由一个leader、2个follower服务器组成，某一个时刻，假如其中一个follower服务器挂了，整个zab集群是不会中断服务的，这时因为leader服务器依然能够获得过半机器（包括leader自己）的支持
 
 **基本特性**
+
 1)zab协议需要确保那些已经在leader服务器上提交的事务最终被所有服务器都提交
 > 假如一个事务在leader服务器提交了，而且已经收到了过半follower的ack，但是在发送commit之前，leader挂了，如图
 ![ZAB崩溃恢复案例]({{ site.baseurl }}/images/2020-05-23/zab-2.png)
 
 **说明：**
 > px:proposalx
+
 > cx: commit of proposalx
+
 >如图这种案例，zab协议需要确保事务proposal2最终能在所有的服务器上都被提交成功，否则出现不一致。
 
 2)zab协议需要丢弃那些只在leader服务器被提出的事务。
@@ -97,15 +102,21 @@ zab协议的消息广播过程使用的是一个**原子广播协议**，类似�
 >整个消息广播过程中，leader服务器会为每个事物请求生成对应的proposal来进行广播，并且在广播事物proposal之前，leader服务器会首先为这个事务proposal分配一个全局单调递增的唯一ID，我们称之为事务ID（ZXID）。为了保证每个消息的严格的因果关系，必须将每一个事务proposal按照其ZXID的先后顺序来进行排序处理
 
 ### 2、主备服务器的数据同步
+
 所有正常运行的服务器，要么成为leader，要么成为follower并和leader保持同步。
+
 **新的follower如何加入到集群？**
+
 >Leader服务器会为每一个follower服务器准备一个队列，并将那些没有被个follower服务器同步的事务以proposal消息的形式诸葛发送给follower服务器，并在每一个propsal消息后面紧接着在发送一个commit消息，以表示该事务已经被提交。等到follower服务器将所有其尚未同步的事务proposal都从leader服务器上同步过来并成功应用到本地数据库中，leader服务器就会将该follower服务器加入到真正可用follower列表中。
 
 #### 2.1、ZXID的组成
 ![zxid结构]({{ site.baseurl }}/images/2020-05-23/zab-zxid-1.png)
 >每当选举产生一个新的leader服务器，就会从这个leader服务器上取出其本地日志中最大事务proposal的xid，并从该zxid中解析出对应的epoch值（高32位），进行+1操作，之后以此编号作为新的epoch（所以新的epoch一定是有史以来值最大的）。
+
 >zab协议通过epoch编号来区分leader周期变化的策略，可以有效避免不同的leader错误使用相同的zxid编号提出不一样的事务proposal的异常情况。
+
 >基于类似的策略，当一个包含了上一个leader周期中尚未提交过的事务的proposal的服务器启动时，它肯定是无法成为leader。因为当前集群中包含一个Quorum集合，该集合中的机器一定包含了更高epoch的事务proposal，因此这台机器的事务proposal肯定不是最高，也就无法成为leader。
+
 >**说明：**
 >>Quorum: 过半原则。Quorum集合代表超过集合一半数量的子集。
 
