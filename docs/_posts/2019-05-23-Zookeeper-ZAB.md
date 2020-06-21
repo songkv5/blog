@@ -172,5 +172,49 @@ F·zxid|Follower f 处理过的历史事务Proposal中最后一个事务Proposal
 hf|每个follower已经处理过的事务序列。（一个follower会处理很多proposal）
 Ie|初始化历史记录。每个主进程周期阶段一都会进行有初始化序列，阶段一完成时，hf就会标记为Ie
 
+
+## 三、zk客户端
+
+### 1、zkClient
+依赖如下
+```xml
+<dependency>
+    <groupId>org.apache.zookeeper</groupId>
+    <artifactId>zookeeper</artifactId>
+    <version>3.6.1</version>
+</dependency>
+<dependency>
+    <groupId>com.github.sgroschupf</groupId>
+    <artifactId>zkclient</artifactId>
+    <version>0.1</version>
+</dependency>
+```
+>zkclient有很多实现，即基于zookeeper的java api接口实现的封装。
+
+
+### 2、curator
+>curator的意思是：馆长。zookeeper意为动物园看守者。用馆长来命名很贴切。
+依赖如下
+```xml
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-framework</artifactId>
+    <version>5.0.0</version>
+</dependency>
+
+<!--下面这个包可选。这个包中提供了许多zk的使用参考-->
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-recipes</artifactId>
+    <version>5.0.0</version>
+</dependency>
+<!--下面这个包可选。这个包中提供了许多便于测试的工具类-->
+<dependency>
+    <groupId>org.apache.curator</groupId>
+    <artifactId>curator-test</artifactId>
+    <version>5.0.0</version>
+</dependency>
+```
+
 -----
 ###### 参考文献《从paxos到Zookeeper分布式一致性原理与实践》
